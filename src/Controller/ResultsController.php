@@ -21,8 +21,16 @@ class ResultsController extends BaseController
 
         $values = $sheetResponse->getValues();
 
-        $response->getBody()->write(print_r($values, true));
+        $arrayFields = ['timestamp', 'reporter', 'opponent', 'points_lost', 'points_destroyed', 'result', 'date_played', 'list_url'];
 
-        return $response;
+        $namedValues = [];
+
+        foreach ($values as $item) {
+            foreach ($item as $key => $value) {
+                $namedValues[$arrayFields[$key]] = $item[$key];
+            }
+        }
+
+        $response->getBody()->write(print_r($namedValues), true);
     }
 }
