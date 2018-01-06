@@ -19,6 +19,7 @@
         "bmitch/churn-php": "^0.4.1"
     },
     "require": {
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "slim/slim": "^3.9"
     }
 }
