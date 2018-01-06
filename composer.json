@@ -17,5 +17,8 @@
         "sebastian/phpcpd": "^3.0",
         "povils/phpmnd": "^1.1",
         "bmitch/churn-php": "^0.4.1"
+    },
+    "require": {
+        "google/apiclient": "^2.0"
     }
 }
