@@ -2,6 +2,7 @@
 
 require '../vendor/autoload.php';
 
+use Boivie\League\Controller\ResultsController;
 use Noodlehaus\Config;
 
 $config = Config::load('../config.yml');
@@ -18,6 +19,6 @@ $container['logger'] = function ($c) {
 };
 
 // TODO: Add routes
-// $app->get('/results', ResultsControllerController::class.':get');
+$app->get('/results', ResultsController::class.':get');
 
 $app->run();
