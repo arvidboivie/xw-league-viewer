@@ -1,6 +1,6 @@
 {
-    "name": "boivie/daily-double",
-    "description": "Checks for duplicates in my daily spotify lists",
+    "name": "boivie/xw-league-viewer",
+    "description": "A tool for keeping my x-wing league results updated",
     "type": "project",
     "authors": [
         {
