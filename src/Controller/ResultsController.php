@@ -21,7 +21,17 @@ class ResultsController extends BaseController
 
         $values = $sheetResponse->getValues();
 
-        $arrayFields = ['timestamp', 'reporter', 'opponent', 'points_lost', 'points_destroyed', 'result', 'date_played', 'list_url'];
+        $arrayFields =
+        [
+            'timestamp',
+            'reporter',
+            'opponent',
+            'points_lost',
+            'points_destroyed',
+            'result',
+            'date_played',
+            'list_url',
+        ];
 
         $namedValues = [];
 
