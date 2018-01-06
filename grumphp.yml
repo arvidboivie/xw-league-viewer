@@ -8,6 +8,7 @@ parameters:
         phpcsfixer2:
             allow_risky: true
             using_cache: true
+            config: .php_cs
             config_contains_finder: true
             verbose: true
             diff: false
