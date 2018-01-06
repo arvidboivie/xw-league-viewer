@@ -7,7 +7,7 @@ use Noodlehaus\Config;
 
 $config = Config::load('../config.yml');
 
-$app = new \Slim\App(['settings' => $config]);
+$app = new \Slim\App(['settings' => $config->all()]);
 
 $container = $app->getContainer();
 $container['logger'] = function ($c) {
