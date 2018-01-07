@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vinterliga 2018</title>
+    </head>
+    <body>
+        <ul id="navigation">
+        {% for item in results %}
+            <a href="{{ item.list }}">{{ item.reporter }}</a> vs {{ item.opponent }}
+        {% endfor %}
+        </ul>
+
+        <h1>My Webpage</h1>
+        {{ a_variable }}
+    </body>
+</html>
