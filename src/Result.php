@@ -1,6 +1,6 @@
 <?php
 
-namespace Boivie\League\Game;
+namespace Boivie\League;
 
 class Result
 {

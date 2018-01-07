@@ -3,7 +3,8 @@
 namespace Boivie\League\Controller;
 
 use Boivie\League\Factory\GameFactory;
-use Boivie\League\Game\Result;
+use Boivie\League\Result;
+use Boivie\League\Scoreboard\Scoreboard;
 
 class ResultsController extends BaseController
 {
@@ -36,37 +37,17 @@ class ResultsController extends BaseController
 
         $games = GameFactory::createGamesFromResults($results);
 
+        $scoreboard = new Scoreboard();
+
+        $scoreboard->addGames($games);
+
         return $this->container['view']->render(
             $response,
             'results.html',
-            ['games' => $games]
+            [
+                'games' => $games,
+                'scoreboard' => $scoreboard,
+            ]
         );
     }
-
-    // private function combineResultsToGames($results)
-    // {
-    //     $games = [];
-    //
-    //     foreach ($results as $resultOne) {
-    //         foreach ($results as $resultTwo) {
-    //             if (compareResults($resultOne, $resultTwo) && )
-    //         }
-    //     }
-    //
-    //     return $games;
-    // }
-    //
-    // private function compareResults($resultOne, $resultTwo)
-    // {
-    //     return
-    //         $resultOne['reporter'] === $resultTwo['opponent']
-    //         && $resultOne['date_played'] === $resultTwo['date_played'];
-    // }
-    //
-    // private function alreadyCombined($games, $result) {
-    //     foreach ($games as $game) {
-    //         if ($game['date_played'] === $result['date_played']
-    //             && $game['player_one'] === )
-    //     }
-    // }
 }

@@ -2,6 +2,8 @@
 
 namespace Boivie\League\Game;
 
+use Boivie\League\Result;
+
 class Player
 {
     protected $name;
@@ -41,5 +43,10 @@ class Player
     public function getPointsLost()
     {
         return $this->pointsLost;
+    }
+
+    public function isWinner()
+    {
+        return $this->winner;
     }
 }

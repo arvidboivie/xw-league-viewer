@@ -4,13 +4,11 @@
         <title>Vinterliga 2018</title>
     </head>
     <body>
-        <ul id="navigation">
         {% for game in games %}
             {% set winner = game.getWinner %}
             {% set loser = game.getLoser %}
             <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
             <br />
         {% endfor %}
-        </ul>
     </body>
 </html>
