@@ -37,6 +37,8 @@ class ResultsController extends BaseController
 
         $games = GameFactory::createGamesFromResults($results);
 
+        $games = $this->sortGamesByDate($games);
+
         $scoreboard = new Scoreboard();
 
         $scoreboard->addGames($games);
@@ -49,5 +51,11 @@ class ResultsController extends BaseController
                 'scoreboard' => $scoreboard->getScoreboard(),
             ]
         );
+    }
+
+    private function sortGamesByDate($games)
+    {
+        // TODO: this will have to do until I implement Carbon and compare dates LOL
+        return array_reverse($games);
     }
 }
