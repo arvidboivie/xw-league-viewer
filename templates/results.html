@@ -4,7 +4,6 @@
         <title>Vinterliga 2018</title>
     </head>
     <body>
-        {{ dump(results) }}
         <ul id="navigation">
         {% for item in results %}
             <a href="{{ item.list_url }}">{{ item.reporter }}</a> vs {{ item.opponent }}

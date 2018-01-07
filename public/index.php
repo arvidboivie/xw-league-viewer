@@ -21,7 +21,7 @@ $container['logger'] = function ($c) {
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig('../templates', [
         'cache' => '../cache',
-        'debug' => true,
+        'debug' => false,
     ]);
 
     // Instantiate and add Slim specific extension
