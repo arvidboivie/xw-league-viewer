@@ -37,18 +37,22 @@ class ResultsController extends BaseController
             'list_url',
         ];
 
-        $namedValues = [];
+        $results = [];
 
         foreach ($values as $item) {
+            $namedValues = [];
+
             foreach ($item as $key => $value) {
                 $namedValues[$arrayFields[$key]] = $item[$key];
             }
+
+            $results[] = $namedValues;
         }
 
         return $this->container['view']->render(
             $response,
             'results.html',
-            ['results' => $namedValues]
+            ['results' => $results]
         );
     }
 }
