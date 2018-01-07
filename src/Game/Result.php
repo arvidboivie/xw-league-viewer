@@ -1,6 +1,6 @@
 <?php
 
-namespace Boivie\League\Games;
+namespace Boivie\League\Game;
 
 class Result
 {
@@ -19,23 +19,21 @@ class Result
             'listUrl',
         ];
 
-    // These are public to allow twig access
+    protected $timestamp;
 
-    public $timestamp;
+    protected $reporterName;
 
-    public $reporterName;
+    protected $opponentName;
 
-    public $opponentName;
+    protected $pointsLost;
 
-    public $pointsLost;
+    protected $pointsDestroyed;
 
-    public $pointsDestroyed;
+    protected $result;
 
-    public $result;
+    protected $datePlayed;
 
-    public $datePlayed;
-
-    public $listUrl;
+    protected $listUrl;
 
     public function __construct($result)
     {

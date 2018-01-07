@@ -2,7 +2,7 @@
 
 namespace Boivie\League\Controller;
 
-use Boivie\League\Games\Result;
+use Boivie\League\Game\Result;
 
 class ResultsController extends BaseController
 {
