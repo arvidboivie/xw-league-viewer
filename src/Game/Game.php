@@ -27,6 +27,11 @@ class Game
         $this->datePlayed = $resultOne->getDatePlayed();
     }
 
+    public function getDatePlayed()
+    {
+        return $this->datePlayed;
+    }
+
     public function getLoser()
     {
         return $this->players[1];
