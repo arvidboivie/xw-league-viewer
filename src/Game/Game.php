@@ -45,11 +45,11 @@ class Game
         return
             $this->datePlayed === $result->getDatePlayed() &&
             (
-                $this->players[0]->name === $result->getReporterName() &&
-                $this->players[1]->name === $result->getOpponentName()
+                $this->players[0]->getName() === $result->getReporterName() &&
+                $this->players[1]->getName() === $result->getOpponentName()
             ) || (
-                $this->players[0]->name === $result->getOpponentName() &&
-                $this->players[1]->name === $result->getReporterName()
+                $this->players[0]->getName() === $result->getOpponentName() &&
+                $this->players[1]->getName() === $result->getReporterName()
             )
         ;
     }

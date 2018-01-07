@@ -82,6 +82,7 @@ class Result
     {
         return (
             $this->reporterName === $result->getOpponentName() &&
+            $this->opponentName === $result->getReporterName() &&
             $this->datePlayed === $result->getDatePlayed() &&
             $this->pointsLost === $result->getPointsDestroyed()
         ) && (
