@@ -6,7 +6,7 @@
     <body>
         <ul id="navigation">
         {% for item in results %}
-            <a href="{{ item.list_url }}">{{ item.reporter }}</a> vs {{ item.opponent }}
+            <a href="{{ item.listUrl }}">{{ item.reporterName }}</a> vs {{ item.opponentName }}
             <br />
         {% endfor %}
         </ul>
