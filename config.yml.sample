@@ -1,2 +1,4 @@
 displayErrorDetails: true
+twig_debug: true
 sheet_id: <google sheet id>
+google_api_key: <google api key>

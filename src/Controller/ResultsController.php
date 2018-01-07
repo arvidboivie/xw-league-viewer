@@ -12,7 +12,7 @@ class ResultsController extends BaseController
     {
         $client = new \Google_Client();
         $client->setApplicationName('xw-league-viewer');
-        $client->setDeveloperKey('***REMOVED***');
+        $client->setDeveloperKey($this->container->get('settings')['google_api_key']);
 
         $sheetService = new \Google_Service_Sheets($client);
 
