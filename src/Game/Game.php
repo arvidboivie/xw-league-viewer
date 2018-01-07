@@ -2,6 +2,8 @@
 
 namespace Boivie\League\Game;
 
+use Boivie\League\Result;
+
 class Game
 {
     protected $players;
