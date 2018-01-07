@@ -46,7 +46,7 @@ class ResultsController extends BaseController
             'results.html',
             [
                 'games' => $games,
-                'scoreboard' => $scoreboard,
+                'scoreboard' => $scoreboard->getScoreboard(),
             ]
         );
     }

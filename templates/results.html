@@ -2,13 +2,49 @@
 <html>
     <head>
         <title>Vinterliga 2018</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     </head>
     <body>
-        {% for game in games %}
-            {% set winner = game.getWinner %}
-            {% set loser = game.getLoser %}
-            <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
-            <br />
-        {% endfor %}
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Namn</th>
+                              <th scope="col">Poäng</th>
+                              <th scope="col">Matcher spelade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for player in scoreboard %}
+                                <tr>
+                                    <th scope="row"> {{ loop.index }} </th>
+                                    <td>
+                                        {{ player.getName() }}
+                                    </td>
+                                    <td>
+                                        {{ player.getScore() }}
+                                    </td>
+                                    <td>
+                                        {{ player.getGamesPlayed() }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-6">
+                    {% for game in games %}
+                        {% set winner = game.getWinner %}
+                        {% set loser = game.getLoser %}
+                        <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
+                        <br />
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
     </body>
 </html>
