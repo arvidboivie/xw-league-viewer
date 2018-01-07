@@ -48,7 +48,7 @@
                             {% for game in games %}
                                 {% set winner = game.getWinner %}
                                 {% set loser = game.getLoser %}
-                                <th scope="row">
+                                <th>
                                     <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
                                 </th>
                             {% endfor %}
