@@ -50,7 +50,7 @@
                                 {% set loser = game.getLoser %}
                                 <tr>
                                     <th style="font-weight: normal;">
-                                        {{ game.getDatePlayed() }}<a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
+                                        {{ game.getDatePlayed() }} <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
                                     </th>
                                 </tr>
                             {% endfor %}
