@@ -36,12 +36,24 @@
                     </table>
                 </div>
                 <div class="col-6">
-                    {% for game in games %}
-                        {% set winner = game.getWinner %}
-                        {% set loser = game.getLoser %}
-                        <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
-                        <br />
-                    {% endfor %}
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="row">
+                                    Matchhistorik
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for game in games %}
+                                {% set winner = game.getWinner %}
+                                {% set loser = game.getLoser %}
+                                <th scope="row">
+                                    <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
+                                </th>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
