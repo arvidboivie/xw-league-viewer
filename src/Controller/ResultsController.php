@@ -2,6 +2,7 @@
 
 namespace Boivie\League\Controller;
 
+use Boivie\League\Factory\GameFactory;
 use Boivie\League\Game\Result;
 
 class ResultsController extends BaseController
@@ -33,10 +34,12 @@ class ResultsController extends BaseController
             $results[] = new Result($value);
         }
 
+        $games = GameFactory::createGamesFromResults($results);
+
         return $this->container['view']->render(
             $response,
             'results.html',
-            ['results' => $results]
+            ['games' => $games]
         );
     }
 
