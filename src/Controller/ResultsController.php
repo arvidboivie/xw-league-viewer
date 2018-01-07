@@ -16,7 +16,7 @@ class ResultsController extends BaseController
 
         $sheetService = new \Google_Service_Sheets($client);
 
-        $spreadsheetId = '***REMOVED***';
+        $spreadsheetId = $this->container->get('settings')['sheet_id'];
 
         $sheetName = 'Form Responses 1';
         $range = $sheetName.'!A2:H1000';
