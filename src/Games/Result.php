@@ -19,21 +19,23 @@ class Result
             'listUrl',
         ];
 
-    protected $timestamp;
+    // These are public to allow twig access
 
-    protected $reporterName;
+    public $timestamp;
 
-    protected $opponentName;
+    public $reporterName;
 
-    protected $pointsLost;
+    public $opponentName;
 
-    protected $pointsDestroyed;
+    public $pointsLost;
 
-    protected $result;
+    public $pointsDestroyed;
 
-    protected $datePlayed;
+    public $result;
 
-    protected $listUrl;
+    public $datePlayed;
+
+    public $listUrl;
 
     public function __construct($result)
     {
