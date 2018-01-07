@@ -23,7 +23,8 @@ class Scoreboard
                     $scoreboardPlayer->addPoint();
                 }
 
-                $scoreboardPlayer->addPoint(); //Playing a game gets you a points
+                $scoreboardPlayer->addGame();
+                $scoreboardPlayer->addPoint(); // Playing a game gets you a point
             }
         }
     }

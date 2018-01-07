@@ -13,6 +13,8 @@ class Player
     public function __construct($name)
     {
         $this->name = $name;
+        $this->score = 0;
+        $this->gamesPlayed = 0;
     }
 
     public function getGamesPlayed()
@@ -28,6 +30,11 @@ class Player
     public function getScore()
     {
         return $this->score;
+    }
+
+    public function addGame()
+    {
+        ++$this->gamesPlayed;
     }
 
     public function addPoint()
