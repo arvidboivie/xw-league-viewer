@@ -39,10 +39,14 @@ class Scoreboard
     private function compareScore($playerA, $playerB)
     {
         if ($playerA->getScore() === $playerB->getScore()) {
-            return 0;
+            if ($playerA->getGamesPlayed() === $playerB->getGamesPlayed()) {
+                return 0;
+            }
+
+            return ($playerA->getScore() < $playerB->getScore()) ? 1 : -1;
         }
 
-        return ($playerA < $playerB) ? -1 : 1;
+        return ($playerA->getScore() < $playerB->getScore()) ? -1 : 1;
     }
 
     private function getExistingPlayer($player)
