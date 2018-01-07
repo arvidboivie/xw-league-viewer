@@ -45,6 +45,10 @@ class ResultsController extends BaseController
             }
         }
 
-        $response->getBody()->write(print_r($namedValues, true));
+        return $this->container['view']->render(
+            $response,
+            'results.html',
+            ['results' => $namedValues]
+        );
     }
 }
