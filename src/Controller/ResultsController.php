@@ -2,20 +2,10 @@
 
 namespace Boivie\League\Controller;
 
+use Boivie\League\Games\Result;
+
 class ResultsController extends BaseController
 {
-    protected $arrayFields =
-        [
-            'timestamp',
-            'reporter',
-            'opponent',
-            'points_lost',
-            'points_destroyed',
-            'result',
-            'date_played',
-            'list_url',
-        ];
-
     public function get($request, $response, $args)
     {
         $client = new \Google_Client();
@@ -37,7 +27,11 @@ class ResultsController extends BaseController
 
         $values = $sheetResponse->getValues();
 
-        $results = $this->addHeadersToResults($values);
+        $results = [];
+
+        foreach ($values as $value) {
+            $results[] = new Result($value);
+        }
 
         return $this->container['view']->render(
             $response,
@@ -46,20 +40,30 @@ class ResultsController extends BaseController
         );
     }
 
-    private function addHeadersToResults($results)
-    {
-        $namedResults = [];
-
-        foreach ($results as $item) {
-            $namedValues = [];
-
-            foreach ($item as $key => $value) {
-                $namedValues[$this->arrayFields[$key]] = $item[$key];
-            }
-
-            $namedResults[] = $namedValues;
-        }
-
-        return $namedResults;
-    }
+    // private function combineResultsToGames($results)
+    // {
+    //     $games = [];
+    //
+    //     foreach ($results as $resultOne) {
+    //         foreach ($results as $resultTwo) {
+    //             if (compareResults($resultOne, $resultTwo) && )
+    //         }
+    //     }
+    //
+    //     return $games;
+    // }
+    //
+    // private function compareResults($resultOne, $resultTwo)
+    // {
+    //     return
+    //         $resultOne['reporter'] === $resultTwo['opponent']
+    //         && $resultOne['date_played'] === $resultTwo['date_played'];
+    // }
+    //
+    // private function alreadyCombined($games, $result) {
+    //     foreach ($games as $game) {
+    //         if ($game['date_played'] === $result['date_played']
+    //             && $game['player_one'] === )
+    //     }
+    // }
 }
