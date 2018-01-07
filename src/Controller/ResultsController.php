@@ -17,7 +17,11 @@ class ResultsController extends BaseController
         $sheetName = 'Form Responses 1';
         $range = $sheetName.'!A2:H1000';
 
-        $sheetResponse = $sheetService->spreadsheets_values->get($spreadsheetId, $range, ['majorDimension' => 'rows']);
+        $sheetResponse = $sheetService->spreadsheets_values->get(
+            $spreadsheetId,
+            $range,
+            ['majorDimension' => 'rows']
+        );
 
         $values = $sheetResponse->getValues();
 
@@ -41,6 +45,6 @@ class ResultsController extends BaseController
             }
         }
 
-        $response->getBody()->write(print_r($namedValues), true);
+        $response->getBody()->write(print_r($namedValues, true));
     }
 }
