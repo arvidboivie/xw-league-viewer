@@ -8,7 +8,7 @@
         {% for game in games %}
             {% set winner = game.getWinner %}
             {% set loser = game.getLoser %}
-            <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs {{ loser.getName() }} Score: {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
+            <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }} Score: {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
             <br />
         {% endfor %}
         </ul>
