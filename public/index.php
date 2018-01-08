@@ -2,6 +2,7 @@
 
 require '../vendor/autoload.php';
 
+use Boivie\League\Controller\HomeController;
 use Boivie\League\Controller\ResultsController;
 use Noodlehaus\Config;
 
@@ -32,7 +33,8 @@ $container['view'] = function ($container) {
     return $view;
 };
 
-// TODO: Add routes
 $app->get('/results/{year}/{league_number}', ResultsController::class.':get');
+
+$app->get('/', HomeController::class.':get');
 
 $app->run();
