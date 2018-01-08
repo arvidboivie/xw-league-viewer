@@ -33,6 +33,6 @@ $container['view'] = function ($container) {
 };
 
 // TODO: Add routes
-$app->get('/results', ResultsController::class.':get');
+$app->get('/results/{year}/{league_number}', ResultsController::class.':get');
 
 $app->run();

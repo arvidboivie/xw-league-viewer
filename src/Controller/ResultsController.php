@@ -16,7 +16,9 @@ class ResultsController extends BaseController
 
         $sheetService = new \Google_Service_Sheets($client);
 
-        $spreadsheetId = $this->container->get('settings')['sheet_id'];
+        $year = $args['year'];
+        $league = $args['league_number'];
+        $spreadsheetId = $this->container->get('settings')['sheets'][$year][$league];
 
         $sheetName = 'Form Responses 1';
         $range = $sheetName.'!A2:H1000';
