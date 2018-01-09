@@ -1,10 +1,10 @@
-#body {
+.xw-body {
     background-color: #343a40;
     height: 100%;
     min-height: 100%;
 }
 
-#footer {
+.xw-footer {
     clear: both;
     position: relative;
     z-index: 10;
