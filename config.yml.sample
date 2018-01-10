@@ -7,3 +7,4 @@ leagues:
             name: <name>
             sheet_id: <sheet id>
             report_form: <google forms url>
+            rules: <url>
