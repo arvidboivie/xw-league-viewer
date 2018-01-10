@@ -6,7 +6,7 @@ class HomeController extends BaseController
 {
     public function get($request, $response, $args)
     {
-        $leagues = $this->container->get('settings')['sheets'];
+        $leagues = $this->container->get('settings')['leagues'];
 
         return $this->container['view']->render(
             $response,

@@ -1,6 +1,9 @@
 displayErrorDetails: true
 twig_debug: true
 google_api_key: <google api key>
-sheets:
+leagues:
     2018:
-        1: <google sheet id>
+        1:
+            name: <name>
+            sheet_id: <sheet id>
+            report_form: <google forms url>

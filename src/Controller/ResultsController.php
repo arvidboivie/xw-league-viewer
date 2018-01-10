@@ -18,7 +18,8 @@ class ResultsController extends BaseController
 
         $year = $args['year'];
         $league = $args['league_number'];
-        $spreadsheetId = $this->container->get('settings')['sheets'][$year][$league];
+        $league_info = $this->container->get('settings')['leagues'][$year][$league];
+        $spreadsheetId = $league_info['sheet_id'];
 
         $sheetName = 'Form Responses 1';
         $range = $sheetName.'!A2:H1000';
@@ -49,6 +50,7 @@ class ResultsController extends BaseController
             $response,
             'results.html',
             [
+                'league_info' => $league_info,
                 'games' => $games,
                 'scoreboard' => $scoreboard->getScoreboard(),
             ]
