@@ -20,7 +20,10 @@
                                 <tr>
                                     <th scope="row"> {{ league_number }} </th>
                                     <td>
-                                        <a href="{{ year }}/{{ league_number }}">{{ league_info.name }}</a>
+                                        {{ league_info.name }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ year }}/{{ league_number }}">Scoreboard</a>
                                     </td>
                                     <td>
                                         <a href="{{ league_info.report_form }}">Matchformulär</a>
