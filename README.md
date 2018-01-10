@@ -1,2 +1,2 @@
 # xw-league-viewer
-A tool for keeping my x-wing league results updated
+Scoreboard and game tracker for my x-wing league
