@@ -33,7 +33,7 @@ $container['view'] = function ($container) {
     return $view;
 };
 
-$app->get('/results/{year}/{league_number}', ResultsController::class.':get');
+$app->get('/{year}/{league_number}', ResultsController::class.':get');
 
 $app->get('/', HomeController::class.':get');
 
