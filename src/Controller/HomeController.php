@@ -14,10 +14,4 @@ class HomeController extends BaseController
             ['leagues' => $leagues]
         );
     }
-
-    private function sortGamesByDate($games)
-    {
-        // TODO: this will have to do until I implement Carbon and compare dates LOL
-        return array_reverse($games);
-    }
 }
