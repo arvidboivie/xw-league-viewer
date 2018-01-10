@@ -16,11 +16,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for league in league_numbers|keys %}
+                            {% for league_number, league_info in league_numbers %}
                                 <tr>
-                                    <th scope="row"> {{ league }} </th>
+                                    <th scope="row"> {{ league_number }} </th>
                                     <td>
-                                        <a href="/xwing/results/{{ year }}/{{ league }}">{{ league_numbers.name }}</a>
+                                        <a href="/xwing/results/{{ year }}/{{ league_number }}">{{ league_info.name }}</a>
                                     </td>
                                 </tr>
                             {% endfor %}
