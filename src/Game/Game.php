@@ -35,7 +35,7 @@ class Game
 
     public function getDatePlayedFormatted()
     {
-        return $this->datePlayed->format('%e %B');
+        return $this->datePlayed->formatLocalized('%e %B');
     }
 
     public function getLoser()
