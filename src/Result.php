@@ -88,7 +88,8 @@ class Result
             $this->reporterName === $result->getOpponentName() &&
             $this->opponentName === $result->getReporterName() &&
             $this->datePlayed->eq($result->getDatePlayed()) &&
-            $this->pointsLost === $result->getPointsDestroyed()
+            $this->pointsLost === $result->getPointsDestroyed() &&
+            $this->pointsDestroyed === $result->getPointsLost()
         ) && (
             ($this->result === self::WIN && $result->getResult() === self::LOSS) ||
             ($this->result === self::LOSS && $result->getResult() === self::WIN)
