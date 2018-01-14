@@ -8,6 +8,8 @@ use Noodlehaus\Config;
 
 $config = Config::load('../config.yml');
 
+setlocale(LC_TIME, $config->get('locale'));
+
 $app = new \Slim\App(['settings' => $config->all()]);
 
 $container = $app->getContainer();

@@ -1,5 +1,6 @@
 displayErrorDetails: true
 twig_debug: true
+locale: sv_SE.utf8
 google_api_key: <google api key>
 leagues:
     2018:

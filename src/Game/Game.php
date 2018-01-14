@@ -35,7 +35,7 @@ class Game
 
     public function getDatePlayedFormatted()
     {
-        return $this->datePlayed->format('j/n');
+        return $this->datePlayed->format('j M');
     }
 
     public function getLoser()
