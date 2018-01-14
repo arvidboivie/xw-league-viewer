@@ -3,6 +3,7 @@
 namespace Boivie\League\Game;
 
 use Boivie\League\Result;
+use Carbon\Carbon;
 
 class Game
 {
@@ -27,7 +28,7 @@ class Game
         $this->datePlayed = $resultOne->getDatePlayed();
     }
 
-    public function getDatePlayed()
+    public function getDatePlayed(): Carbon
     {
         return $this->datePlayed;
     }
@@ -50,7 +51,7 @@ class Game
     public function matchesResult(Result $result)
     {
         return
-            $this->datePlayed === $result->getDatePlayed() &&
+            $this->datePlayed->eq($result->getDatePlayed()) &&
             (
                 $this->players[0]->getName() === $result->getReporterName() &&
                 $this->players[1]->getName() === $result->getOpponentName()

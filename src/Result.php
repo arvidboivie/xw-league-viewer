@@ -2,6 +2,8 @@
 
 namespace Boivie\League;
 
+use Carbon\Carbon;
+
 class Result
 {
     const WIN = 'Vinst';
@@ -41,9 +43,11 @@ class Result
             $keyName = $this->properties[$key];
             $this->$keyName = $value;
         }
+
+        $this->datePlayed = Carbon::createFromFormat('d/m/Y', $this->datePlayed);
     }
 
-    public function getDatePlayed()
+    public function getDatePlayed(): Carbon
     {
         return $this->datePlayed;
     }
@@ -83,7 +87,7 @@ class Result
         return (
             $this->reporterName === $result->getOpponentName() &&
             $this->opponentName === $result->getReporterName() &&
-            $this->datePlayed === $result->getDatePlayed() &&
+            $this->datePlayed->eq($result->getDatePlayed()) &&
             $this->pointsLost === $result->getPointsDestroyed()
         ) && (
             ($this->result === self::WIN && $result->getResult() === self::LOSS) ||
