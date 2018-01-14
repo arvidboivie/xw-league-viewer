@@ -33,6 +33,11 @@ class Game
         return $this->datePlayed;
     }
 
+    public function getDatePlayedFormatted()
+    {
+        return $this->datePlayed->format('j M');
+    }
+
     public function getLoser()
     {
         return $this->players[1];
