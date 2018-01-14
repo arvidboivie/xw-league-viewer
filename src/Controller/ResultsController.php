@@ -40,7 +40,7 @@ class ResultsController extends BaseController
 
         $games = GameFactory::createGamesFromResults($results);
 
-        $games = $this->sortGamesByDate($games);
+        usort($games, [$this, 'sortGamesByDate']);
 
         $scoreboard = new Scoreboard();
 
@@ -57,9 +57,15 @@ class ResultsController extends BaseController
         );
     }
 
-    private function sortGamesByDate($games)
+    private function sortGamesByDate($gameA, $gameB)
     {
-        // TODO: this will have to do until I implement Carbon and compare dates LOL
-        return array_reverse($games);
+        $dateA = $gameA->getDatePlayed();
+        $dateB = $gameB->getDatePlayed();
+
+        if ($dateA->eq($dateB)) {
+            return 0;
+        }
+
+        return $dateA->gt($dateB) ? 1 : -1;
     }
 }
