@@ -50,8 +50,8 @@ class Player
         ++$this->score;
     }
 
-    public function addMarginOfVictory()
+    public function addMarginOfVictory($marginOfVictory)
     {
-        ++$this->marginOfVictory;
+        $this->marginOfVictory += $marginOfVictory;
     }
 }
