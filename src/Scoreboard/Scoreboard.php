@@ -20,11 +20,17 @@ class Scoreboard
                 }
 
                 if ($player->isWinner()) {
-                    $scoreboardPlayer->addPoint();
+                    $scoreboardPlayer->addPoint(); // Winning gets you an extra point
                 }
 
                 $scoreboardPlayer->addGame();
-                $scoreboardPlayer->addPoint(); // Playing a game gets you a point
+                $scoreboardPlayer->addPoint();
+                $scoreboardPlayer->addMarginOfVictory(
+                    $this->calculateMarginOfVictory(
+                        $player,
+                        $player->isWinner()
+                    )
+                );
             }
         }
     }
@@ -34,6 +40,17 @@ class Scoreboard
         usort($this->players, [$this, 'compareScore']);
 
         return $this->players;
+    }
+
+    private function calculateMarginOfVictory($player, $isWinner)
+    {
+        $pointsDifference = abs($player->getPointsDestroyed() - $player->getPointsLost());
+
+        if ($isWinner === true) {
+            return 100 + $pointsDifference;
+        }
+
+        return 100 - $pointsDifference;
     }
 
     private function compareScore($playerA, $playerB)

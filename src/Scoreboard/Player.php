@@ -10,11 +10,14 @@ class Player
 
     protected $score;
 
+    protected $marginOfVictory;
+
     public function __construct($name)
     {
         $this->name = $name;
         $this->score = 0;
         $this->gamesPlayed = 0;
+        $this->marginOfVictory = 0;
     }
 
     public function getGamesPlayed()
@@ -32,6 +35,11 @@ class Player
         return $this->score;
     }
 
+    public function getMarginOfVictory()
+    {
+        return $this->marginOfVictory;
+    }
+
     public function addGame()
     {
         ++$this->gamesPlayed;
@@ -40,5 +48,10 @@ class Player
     public function addPoint()
     {
         ++$this->score;
+    }
+
+    public function addMarginOfVictory()
+    {
+        ++$this->marginOfVictory;
     }
 }
