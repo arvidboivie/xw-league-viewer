@@ -60,7 +60,7 @@ class Scoreboard
                 return 0;
             }
 
-            return ($playerA->getScore() < $playerB->getScore()) ? -1 : 1;
+            return ($playerA->getGamesPlayed() < $playerB->getGamesPlayed()) ? -1 : 1;
         }
 
         return ($playerA->getScore() < $playerB->getScore()) ? 1 : -1;
