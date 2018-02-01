@@ -53,17 +53,27 @@ class Scoreboard
         return 100 - $pointsDifference;
     }
 
-    private function compareScore($playerA, $playerB)
+    private function compareScore(Player $a, Player $b)
     {
-        if ($playerA->getScore() === $playerB->getScore()) {
-            if ($playerA->getGamesPlayed() === $playerB->getGamesPlayed()) {
-                return 0;
+        // Reminder: Returning 1 puts players further down on the scoreboard, and vice versa
+
+        if ($a->getScore() === $b->getScore()) {
+            if ($a->getGamesPlayed() === $b->getGamesPlayed()) {
+                if ($a->getMarginOfVictory() === $b->getMarginOfVictory()) {
+                    return 0;
+                }
+
+                // If players have the same score and the same number of games played,
+                // break the tie on MoV
+                return ($a->getMarginOfVictory() < $b->getMarginOfVictory()) ? 1 : -1;
             }
 
-            return ($playerA->getGamesPlayed() < $playerB->getGamesPlayed()) ? -1 : 1;
+            // If players have the same score, the one with fewer games is in the lead
+            return ($a->getGamesPlayed() > $b->getGamesPlayed()) ? 1 : -1;
         }
 
-        return ($playerA->getScore() < $playerB->getScore()) ? 1 : -1;
+        // If players don't have the same score, the one with the higher score is in the lead
+        return ($a->getScore() < $b->getScore()) ? 1 : -1;
     }
 
     private function getExistingPlayer($player)
