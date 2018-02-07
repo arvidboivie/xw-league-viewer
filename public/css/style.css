@@ -14,3 +14,7 @@ body {
 .xw-content {
     flex: 1 0 auto;
 }
+
+.winner-link {
+    font-weight: bold;
+}

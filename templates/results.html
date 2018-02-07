@@ -58,7 +58,7 @@
                                         {{ game.getDatePlayedFormatted() }}
                                     </th>
                                     <td>
-                                        <a href="{{ winner.getList() }}">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
+                                        <a href="{{ winner.getList() }}" class="winner-link">{{ winner.getName() }}</a> vs <a href="{{ loser.getList() }}">{{ loser.getName() }}</a> {{ winner.getPointsDestroyed() }}-{{ winner.getPointsLost() }}
                                     </td>
                                 </tr>
                             {% endfor %}
