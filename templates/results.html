@@ -16,6 +16,7 @@
                               <th scope="col">Namn</th>
                               <th scope="col">Poäng</th>
                               <th scope="col">Matcher</th>
+                              <th scope="col">Vinster</th>
                               <th scope="col">MoV</th>
                             </tr>
                         </thead>
@@ -31,6 +32,9 @@
                                     </td>
                                     <td>
                                         {{ player.getGamesPlayed() }}
+                                    </td>
+                                    <td>
+                                        {{ player.getGamesWon() }}
                                     </td>
                                     <td>
                                         {{ player.getMarginOfVictory() }}
