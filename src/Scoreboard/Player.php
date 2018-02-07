@@ -4,18 +4,17 @@ namespace Boivie\League\Scoreboard;
 
 class Player
 {
-    protected $gamesPlayed;
-
     protected $name;
 
-    protected $score;
+    protected $gamesPlayed;
+
+    protected $gamesWon;
 
     protected $marginOfVictory;
 
     public function __construct($name)
     {
         $this->name = $name;
-        $this->score = 0;
         $this->gamesPlayed = 0;
         $this->marginOfVictory = 0;
     }
@@ -25,6 +24,11 @@ class Player
         return $this->gamesPlayed;
     }
 
+    public function getGamesWon()
+    {
+        return $this->gamesWon;
+    }
+
     public function getName()
     {
         return $this->name;
@@ -32,7 +36,7 @@ class Player
 
     public function getScore()
     {
-        return $this->score;
+        return $this->gamesPlayed + $this->gamesWon;
     }
 
     public function getMarginOfVictory()
@@ -45,9 +49,9 @@ class Player
         ++$this->gamesPlayed;
     }
 
-    public function addPoint()
+    public function addWin()
     {
-        ++$this->score;
+        ++$this->gamesWon;
     }
 
     public function addMarginOfVictory($marginOfVictory)

@@ -20,11 +20,10 @@ class Scoreboard
                 }
 
                 if ($player->isWinner()) {
-                    $scoreboardPlayer->addPoint(); // Winning gets you an extra point
+                    $scoreboardPlayer->addWin();
                 }
 
                 $scoreboardPlayer->addGame();
-                $scoreboardPlayer->addPoint();
                 $scoreboardPlayer->addMarginOfVictory(
                     $this->calculateMarginOfVictory(
                         $player,
