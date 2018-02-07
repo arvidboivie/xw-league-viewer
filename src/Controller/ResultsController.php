@@ -66,6 +66,6 @@ class ResultsController extends BaseController
             return 0;
         }
 
-        return $dateA->gt($dateB) ? 1 : -1;
+        return $dateA->gt($dateB) ? -1 : 1;
     }
 }
