@@ -19,6 +19,7 @@ class ResultsController extends BaseController
         $year = $args['year'];
         $league = $args['league_number'];
         $league_info = $this->container->get('settings')['leagues'][$year][$league];
+        $edition = $this->container->get('settings')['leagues'][$year][$league];
         $spreadsheetId = $league_info['sheet_id'];
 
         $sheetName = 'Form Responses 1';
@@ -42,7 +43,7 @@ class ResultsController extends BaseController
 
         usort($games, [$this, 'sortGamesByDate']);
 
-        $scoreboard = new Scoreboard();
+        $scoreboard = new Scoreboard($edition);
 
         $scoreboard->addGames($games);
 

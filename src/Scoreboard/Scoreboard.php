@@ -5,6 +5,12 @@ namespace Boivie\League\Scoreboard;
 class Scoreboard
 {
     protected $players;
+    protected $edition;
+
+    public function __construct($edition)
+    {
+        $this->edition = $edition;
+    }
 
     public function addGames($games)
     {
@@ -46,10 +52,10 @@ class Scoreboard
         $pointsDifference = abs($player->getPointsDestroyed() - $player->getPointsLost());
 
         if ($isWinner === true) {
-            return 100 + $pointsDifference;
+            return (100 * (int) $this->edition) + $pointsDifference;
         }
 
-        return 100 - $pointsDifference;
+        return (100 * (int) $this->edition) - $pointsDifference;
     }
 
     private function compareScore(Player $a, Player $b)

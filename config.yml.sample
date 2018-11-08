@@ -9,3 +9,4 @@ leagues:
             sheet_id: <sheet id>
             report_form: <google forms url>
             rules: <url>
+            edition: 1|2
