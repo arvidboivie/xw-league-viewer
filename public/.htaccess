@@ -1,8 +1,20 @@
 Order Allow,Deny
 Allow from all
 
-# Redirect to Slim Router
 RewriteEngine On
+
+# Redirect to Slim Router
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.php [QSA,L]
+RewriteRule ^ index.php [QSA]
+
+RewriteCond %{HTTPS} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI}
+
+# Rewrite subdomain if it isn't already www or api.
+# (?:.*?\.)? matches everything up to the first dot.
+# ?(.+\.\w{2,3}$) matches everything else, as long as there is another dot with two letters following it.
+# This will match "arvidboivie.se" in "foo.arvidboivie.se" and also "arvidboivie.se" in "arvidboivie.se"
+RewriteCond %{HTTP_HOST} !(^www\.|^api\.)
+RewriteCond %{HTTP_HOST} ^(?:.*?\.)?(.+\.\w{2,3}$) [NC]
+RewriteRule ^(.*)$ https://www.%1%{REQUEST_URI} [L,R=301]
