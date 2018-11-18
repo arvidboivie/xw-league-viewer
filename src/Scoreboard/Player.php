@@ -16,6 +16,7 @@ class Player
     {
         $this->name = $name;
         $this->gamesPlayed = 0;
+        $this->gamesWon = 0;
         $this->marginOfVictory = 0;
     }
 
